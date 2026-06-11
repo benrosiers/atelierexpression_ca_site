@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Atelier Expression arrive bientôt près de chez vous. Inscrivez-vous pour recevoir les prochaines informations."
+    />
+    <meta name="theme-color" content="#f7f4ef" />
+
+    <meta property="og:title" content="Atelier Expression — Bientôt près de chez vous" />
+    <meta
+      property="og:description"
+      content="Un atelier vivant pour reprendre sa place, bouger et s’exprimer avec confiance."
+    />
+    <meta property="og:type" content="website" />
+
+    <title>Atelier Expression — Bientôt près de chez vous</title>
+  </head>
+  <body>
+    <main class="coming-soon" aria-labelledby="page-title">
+      <section class="hero" aria-label="Atelier Expression — page d'attente">
+        <div class="hero__copy">
+          <a class="brand" href="/" aria-label="Atelier Expression">
+            <span class="brand__top">Atelier</span>
+            <span class="brand__main">Expression</span>
+          </a>
+
+          <p class="eyebrow">Expression · confiance · présence</p>
+
+          <h1 id="page-title">Bientôt près de chez vous!</h1>
+
+          <p class="lead">
+            Un atelier vivant pour reprendre sa place, bouger, rire, ressentir
+            et s’exprimer avec plus de confiance.
+          </p>
+
+          <form
+            class="signup"
+            action="https://formspree.io/f/TON_ID_FORMSPREE"
+            method="POST"
+            data-waitlist-form
+          >
+            <label class="signup__label" for="email">Restez informé</label>
+            <div class="signup__row">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="votre@email.com"
+                required
+              />
+              <button type="submit">Me prévenir</button>
+            </div>
+            <p class="signup__note" data-form-message>
+              On vous écrira seulement pour les dates, lieux et annonces importantes.
+            </p>
+          </form>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="poster">
+            <div class="poster__burst">!</div>
+            <div class="poster__circle poster__circle--red"></div>
+            <div class="poster__circle poster__circle--teal"></div>
+            <div class="poster__arc"></div>
+            <div class="poster__quote">Osez.<br />Bougez.<br />Rayonnez.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

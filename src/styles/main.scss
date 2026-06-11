@@ -1,0 +1,356 @@
+$ink: #111111;
+$cream: #f7f4ef;
+$paper: #fffdf8;
+$red: #ea3d30;
+$teal: #009f9a;
+$orange: #ffc233;
+$lilac: #b69cff;
+$muted: #6c655f;
+$line: rgba($ink, 0.14);
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: $cream;
+  color: $ink;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background:
+    radial-gradient(circle at 8% 14%, rgba($red, 0.12), transparent 18rem),
+    radial-gradient(circle at 94% 18%, rgba($orange, 0.18), transparent 16rem),
+    radial-gradient(circle at 76% 84%, rgba($lilac, 0.18), transparent 18rem),
+    $cream;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.coming-soon {
+  min-height: 100svh;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 1.25rem;
+    border: 1px solid $line;
+    border-radius: 2rem;
+    pointer-events: none;
+  }
+}
+
+.hero {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(19rem, 0.78fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: center;
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: clamp(5rem, 10vh, 8rem) 0;
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  color: $ink;
+  text-decoration: none;
+  line-height: 0.84;
+  transform: rotate(-1deg);
+
+  &__top {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.08em;
+  }
+
+  &__main {
+    position: relative;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: -0.08em;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 3.1rem;
+      height: 1.15rem;
+      right: -3.45rem;
+      top: 0.2rem;
+      background:
+        linear-gradient($red 0 0) center / 100% 4px no-repeat,
+        linear-gradient($red 0 0) center / 4px 100% no-repeat;
+      transform: rotate(16deg);
+    }
+  }
+}
+
+.eyebrow {
+  margin: clamp(2.5rem, 6vh, 4rem) 0 1rem;
+  color: $red;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 11ch;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4.1rem, 10vw, 8.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.085em;
+}
+
+.lead {
+  max-width: 37rem;
+  margin: 1.75rem 0 0;
+  color: $muted;
+  font-size: clamp(1.08rem, 1.7vw, 1.35rem);
+  line-height: 1.65;
+}
+
+.signup {
+  width: min(100%, 39rem);
+  margin-top: clamp(2rem, 5vh, 3.5rem);
+  padding: 1rem;
+  border: 2px solid $ink;
+  border-radius: 1.35rem;
+  background: rgba($paper, 0.74);
+  box-shadow: 0.6rem 0.6rem 0 $ink;
+
+  &__label {
+    display: block;
+    margin: 0 0 0.7rem;
+    font-size: 0.86rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.7rem;
+  }
+
+  input,
+  button {
+    min-height: 3.45rem;
+    border: 2px solid $ink;
+    border-radius: 999px;
+  }
+
+  input {
+    width: 100%;
+    padding: 0 1.2rem;
+    background: $paper;
+    color: $ink;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 0 4px rgba($teal, 0.2);
+    }
+  }
+
+  button {
+    padding: 0 1.4rem;
+    background: $ink;
+    color: $paper;
+    cursor: pointer;
+    font-weight: 800;
+    transition:
+      transform 160ms ease,
+      background-color 160ms ease;
+
+    &:hover {
+      background: $red;
+      transform: translateY(-2px) rotate(-1deg);
+    }
+
+    &:disabled {
+      cursor: wait;
+      opacity: 0.7;
+      transform: none;
+    }
+  }
+
+  &__note {
+    min-height: 1.35rem;
+    margin: 0.8rem 0 0;
+    color: $muted;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+.is-success {
+  color: $teal;
+  font-weight: 800;
+}
+
+.is-error,
+.is-warning {
+  color: $red;
+  font-weight: 800;
+}
+
+.hero__visual {
+  display: grid;
+  place-items: center;
+}
+
+.poster {
+  position: relative;
+  width: min(100%, 26rem);
+  aspect-ratio: 0.78;
+  border: 2px solid $ink;
+  border-radius: 2rem;
+  background:
+    radial-gradient(circle at 76% 25%, rgba($orange, 0.94) 0 10%, transparent 10.4%),
+    radial-gradient(circle at 64% 76%, rgba($red, 0.96) 0 20%, transparent 20.5%),
+    linear-gradient(135deg, transparent 0 58%, rgba($lilac, 0.7) 58% 65%, transparent 65%),
+    $paper;
+  box-shadow: -1rem 1rem 0 rgba($ink, 0.05);
+  transform: rotate(2.5deg);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 1.1rem;
+    border: 2px dashed rgba($ink, 0.2);
+    border-radius: 1.45rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    right: -2.4rem;
+    bottom: -2rem;
+    background:
+      radial-gradient(circle, $ink 0 8%, transparent 9%) 0 0 / 1.1rem 1.1rem;
+    opacity: 0.92;
+    transform: rotate(8deg);
+  }
+
+  &__burst {
+    position: absolute;
+    top: 2.7rem;
+    left: 2.6rem;
+    display: grid;
+    place-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+    border: 4px solid $red;
+    border-radius: 50%;
+    color: $red;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 4rem;
+    font-weight: 900;
+    transform: rotate(-11deg);
+  }
+
+  &__circle {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: multiply;
+
+    &--red {
+      width: 7rem;
+      height: 7rem;
+      right: 2.3rem;
+      top: 6.6rem;
+      background: rgba($red, 0.92);
+    }
+
+    &--teal {
+      width: 8.4rem;
+      height: 8.4rem;
+      left: 2.1rem;
+      bottom: 4.5rem;
+      background: rgba($teal, 0.92);
+    }
+  }
+
+  &__arc {
+    position: absolute;
+    width: 13rem;
+    height: 13rem;
+    left: 5.5rem;
+    top: 9.2rem;
+    border: 1.1rem solid transparent;
+    border-left-color: $lilac;
+    border-bottom-color: $lilac;
+    border-radius: 50%;
+    transform: rotate(-22deg);
+  }
+
+  &__quote {
+    position: absolute;
+    left: 2.1rem;
+    bottom: 2.4rem;
+    z-index: 1;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    font-style: italic;
+    font-weight: 900;
+    line-height: 0.94;
+    letter-spacing: -0.06em;
+  }
+}
+
+@media (max-width: 860px) {
+  .coming-soon::before {
+    inset: 0.75rem;
+    border-radius: 1.25rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 3.2rem 0 4.5rem;
+  }
+
+  h1 {
+    max-width: 9ch;
+  }
+
+  .hero__visual {
+    justify-content: start;
+  }
+
+  .poster {
+    width: min(100%, 20rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .signup {
+    box-shadow: 0.35rem 0.35rem 0 $ink;
+
+    &__row {
+      grid-template-columns: 1fr;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}
