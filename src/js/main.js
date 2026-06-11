@@ -1,50 +1,65 @@
-import "../styles/main.scss";
+﻿const SIGNUP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwiTjr_vB7Q1Y8YUpLCCJBqSoPjQYEE_RnbbQIiOn5ooV55bKgzhBXlDg9I_m8ppG6QXA/exec";
 
-const form = document.querySelector("[data-waitlist-form]");
-const message = document.querySelector("[data-form-message]");
+const form = document.querySelector(".signup");
+const emailInput = form?.querySelector('input[type="email"], input[name="email"]');
+const button = form?.querySelector("button");
 
-if (form && message) {
+function setMessage(text, type = "neutral") {
+  let message = form.querySelector("[data-signup-message]");
+
+  if (!message) {
+    message = document.createElement("p");
+    message.setAttribute("data-signup-message", "");
+    message.className = "signup__message";
+    form.appendChild(message);
+  }
+
+  message.textContent = text;
+  message.dataset.type = type;
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+if (form && emailInput && button) {
   form.addEventListener("submit", async (event) => {
-    const endpoint = form.getAttribute("action") || "";
+    event.preventDefault();
 
-    if (endpoint.includes("TON_ID_FORMSPREE")) {
-      event.preventDefault();
-      message.textContent =
-        "Mode démo: remplace TON_ID_FORMSPREE par ton vrai endpoint pour recevoir les courriels.";
-      message.classList.add("is-warning");
+    const email = emailInput.value.trim().toLowerCase();
+
+    if (!isValidEmail(email)) {
+      setMessage("Entrez une adresse courriel valide.", "error");
+      emailInput.focus();
       return;
     }
 
-    event.preventDefault();
-    const submitButton = form.querySelector("button[type='submit']");
-    const formData = new FormData(form);
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Envoi...";
-    message.textContent = "";
-    message.classList.remove("is-error", "is-success", "is-warning");
+    button.disabled = true;
+    button.textContent = "Envoi...";
 
     try {
-      const response = await fetch(endpoint, {
+      const body = new URLSearchParams();
+      body.set("email", email);
+      body.set("source", "atelierexpression.ca");
+      body.set("ua", navigator.userAgent);
+      body.set("website", "");
+
+      await fetch(SIGNUP_ENDPOINT, {
         method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" }
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body,
       });
 
-      if (!response.ok) {
-        throw new Error("Erreur d’inscription");
-      }
-
-      form.reset();
-      message.textContent = "C’est fait. On vous tient au courant bientôt.";
-      message.classList.add("is-success");
+      emailInput.value = "";
+      setMessage("Merci! On vous tiendra au courant des prochaines dates.", "success");
     } catch (error) {
-      message.textContent =
-        "L’inscription n’a pas fonctionné. Réessayez dans un instant.";
-      message.classList.add("is-error");
+      setMessage("Oups. Réessayez dans un moment.", "error");
     } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = "Me prévenir";
+      button.disabled = false;
+      button.textContent = "Me prévenir";
     }
   });
 }
