@@ -1,4 +1,6 @@
-﻿const SIGNUP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwiTjr_vB7Q1Y8YUpLCCJBqSoPjQYEE_RnbbQIiOn5ooV55bKgzhBXlDg9I_m8ppG6QXA/exec";
+﻿import "../styles/main.scss";
+
+const SIGNUP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwiTjr_vB7Q1Y8YUpLCCJBqSoPjQYEE_RnbbQIiOn5ooV55bKgzhBXlDg9I_m8ppG6QXA/exec";
 
 const form = document.querySelector(".signup");
 const emailInput = form?.querySelector('input[type="email"], input[name="email"]');
@@ -63,3 +65,4 @@ if (form && emailInput && button) {
     }
   });
 }
+
