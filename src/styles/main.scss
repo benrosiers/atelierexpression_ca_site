@@ -354,3 +354,162 @@ h1 {
     }
   }
 }
+
+/* Mobile layout fix: prevent poster/form overlap */
+@media (max-width: 700px) {
+  .coming-soon {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .coming-soon::before {
+    inset: 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .hero {
+    width: min(100% - 1.5rem, 34rem);
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
+    padding: 2.25rem 0 3.5rem;
+  }
+
+  .hero__copy {
+    position: relative;
+    z-index: 2;
+  }
+
+  .brand__top {
+    font-size: 1.75rem;
+  }
+
+  .brand__main {
+    font-size: 2.4rem;
+  }
+
+  .brand__main::after {
+    width: 2rem;
+    height: 0.75rem;
+    right: -2.25rem;
+    top: 0.15rem;
+  }
+
+  .eyebrow {
+    margin-top: 2.25rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.13em;
+  }
+
+  h1 {
+    max-width: 8ch;
+    font-size: clamp(4rem, 19vw, 5.75rem);
+    line-height: 0.86;
+  }
+
+  .lead {
+    margin-top: 1.3rem;
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
+  .signup {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    margin-top: 1.8rem;
+    padding: 0.9rem;
+    border-radius: 1.2rem;
+    box-shadow: 0.35rem 0.35rem 0 #111111;
+    background: #fffdf8;
+  }
+
+  .signup__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .signup input,
+  .signup button {
+    width: 100%;
+    min-height: 3.35rem;
+  }
+
+  .signup__note {
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .hero__visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .poster {
+    width: min(78vw, 17rem);
+    transform: rotate(1.5deg);
+    margin: 0 auto;
+  }
+
+  .poster::after {
+    right: -1rem;
+    bottom: -1.2rem;
+    width: 5rem;
+    height: 5rem;
+    background-size: 0.8rem 0.8rem;
+  }
+
+  .poster__burst {
+    top: 1.5rem;
+    left: 1.4rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 2.7rem;
+    border-width: 3px;
+  }
+
+  .poster__circle--red {
+    width: 5rem;
+    height: 5rem;
+    right: 1.4rem;
+    top: 4.4rem;
+  }
+
+  .poster__circle--teal {
+    width: 5.8rem;
+    height: 5.8rem;
+    left: 1.3rem;
+    bottom: 3.2rem;
+  }
+
+  .poster__arc {
+    width: 9rem;
+    height: 9rem;
+    left: 3.6rem;
+    top: 6.6rem;
+    border-width: 0.75rem;
+  }
+
+  .poster__quote {
+    left: 1.45rem;
+    bottom: 1.7rem;
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 390px) {
+  h1 {
+    font-size: clamp(3.55rem, 18vw, 4.8rem);
+  }
+
+  .poster {
+    width: min(74vw, 15.5rem);
+  }
+}
