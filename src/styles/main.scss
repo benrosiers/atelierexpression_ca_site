@@ -1,12 +1,13 @@
-$ink: #111111;
-$cream: #f7f4ef;
+// ─── Palette aligned with atelierexpression.ca ──────────────────────────────
+$c-orange:  #FF5A1F;
+$c-pink:    #F02E8A;
+$c-plum:    #351426;
+$c-cream:   #FFF7EF;
+
+$ink:   #111111;
 $paper: #fffdf8;
-$red: #ea3d30;
-$teal: #009f9a;
-$orange: #ffc233;
-$lilac: #b69cff;
 $muted: #6c655f;
-$line: rgba($ink, 0.14);
+$line:  rgba($ink, 0.14);
 
 * {
   box-sizing: border-box;
@@ -14,7 +15,7 @@ $line: rgba($ink, 0.14);
 
 html {
   min-height: 100%;
-  background: $cream;
+  background: $c-cream;
   color: $ink;
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -25,10 +26,10 @@ body {
   min-height: 100%;
   margin: 0;
   background:
-    radial-gradient(circle at 8% 14%, rgba($red, 0.12), transparent 18rem),
-    radial-gradient(circle at 94% 18%, rgba($orange, 0.18), transparent 16rem),
-    radial-gradient(circle at 76% 84%, rgba($lilac, 0.18), transparent 18rem),
-    $cream;
+    radial-gradient(circle at 8% 14%, rgba($c-orange, 0.10), transparent 18rem),
+    radial-gradient(circle at 94% 18%, rgba($c-pink, 0.08), transparent 16rem),
+    radial-gradient(circle at 76% 84%, rgba($c-plum, 0.06), transparent 18rem),
+    $c-cream;
 }
 
 button,
@@ -62,6 +63,7 @@ input {
   padding: clamp(5rem, 10vh, 8rem) 0;
 }
 
+// ─── Brand wordmark ──────────────────────────────────────────────────────────
 .brand {
   display: inline-flex;
   flex-direction: column;
@@ -93,16 +95,17 @@ input {
       right: -3.45rem;
       top: 0.2rem;
       background:
-        linear-gradient($red 0 0) center / 100% 4px no-repeat,
-        linear-gradient($red 0 0) center / 4px 100% no-repeat;
+        linear-gradient($c-orange 0 0) center / 100% 4px no-repeat,
+        linear-gradient($c-orange 0 0) center / 4px 100% no-repeat;
       transform: rotate(16deg);
     }
   }
 }
 
+// ─── Copy ────────────────────────────────────────────────────────────────────
 .eyebrow {
   margin: clamp(2.5rem, 6vh, 4rem) 0 1rem;
-  color: $red;
+  color: $c-orange;
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.17em;
@@ -126,6 +129,7 @@ h1 {
   line-height: 1.65;
 }
 
+// ─── Signup form ─────────────────────────────────────────────────────────────
 .signup {
   width: min(100%, 39rem);
   margin-top: clamp(2rem, 5vh, 3.5rem);
@@ -165,7 +169,7 @@ h1 {
     outline: none;
 
     &:focus {
-      box-shadow: 0 0 0 4px rgba($teal, 0.2);
+      box-shadow: 0 0 0 4px rgba($c-pink, 0.20);
     }
   }
 
@@ -180,7 +184,7 @@ h1 {
       background-color 160ms ease;
 
     &:hover {
-      background: $red;
+      background: $c-orange;
       transform: translateY(-2px) rotate(-1deg);
     }
 
@@ -201,122 +205,108 @@ h1 {
 }
 
 .is-success {
-  color: $teal;
+  color: $c-orange;
   font-weight: 800;
 }
 
 .is-error,
 .is-warning {
-  color: $red;
+  color: $c-pink;
   font-weight: 800;
 }
 
+// ─── Photo panel ─────────────────────────────────────────────────────────────
 .hero__visual {
   display: grid;
   place-items: center;
 }
 
-.poster {
+.photo-panel {
   position: relative;
   width: min(100%, 26rem);
-  aspect-ratio: 0.78;
-  border: 2px solid $ink;
-  border-radius: 2rem;
-  background:
-    radial-gradient(circle at 76% 25%, rgba($orange, 0.94) 0 10%, transparent 10.4%),
-    radial-gradient(circle at 64% 76%, rgba($red, 0.96) 0 20%, transparent 20.5%),
-    linear-gradient(135deg, transparent 0 58%, rgba($lilac, 0.7) 58% 65%, transparent 65%),
-    $paper;
-  box-shadow: -1rem 1rem 0 rgba($ink, 0.05);
-  transform: rotate(2.5deg);
+  transform: rotate(1.5deg);
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 1.1rem;
-    border: 2px dashed rgba($ink, 0.2);
-    border-radius: 1.45rem;
-  }
+.photo-panel__main {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 3px solid $ink;
+  box-shadow: 0.7rem 0.7rem 0 $ink;
+  aspect-ratio: 4/5;
 
-  &::after {
-    content: "";
-    position: absolute;
-    width: 8rem;
-    height: 8rem;
-    right: -2.4rem;
-    bottom: -2rem;
-    background:
-      radial-gradient(circle, $ink 0 8%, transparent 9%) 0 0 / 1.1rem 1.1rem;
-    opacity: 0.92;
-    transform: rotate(8deg);
-  }
-
-  &__burst {
-    position: absolute;
-    top: 2.7rem;
-    left: 2.6rem;
-    display: grid;
-    place-items: center;
-    width: 5.5rem;
-    height: 5.5rem;
-    border: 4px solid $red;
-    border-radius: 50%;
-    color: $red;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 4rem;
-    font-weight: 900;
-    transform: rotate(-11deg);
-  }
-
-  &__circle {
-    position: absolute;
-    border-radius: 50%;
-    mix-blend-mode: multiply;
-
-    &--red {
-      width: 7rem;
-      height: 7rem;
-      right: 2.3rem;
-      top: 6.6rem;
-      background: rgba($red, 0.92);
-    }
-
-    &--teal {
-      width: 8.4rem;
-      height: 8.4rem;
-      left: 2.1rem;
-      bottom: 4.5rem;
-      background: rgba($teal, 0.92);
-    }
-  }
-
-  &__arc {
-    position: absolute;
-    width: 13rem;
-    height: 13rem;
-    left: 5.5rem;
-    top: 9.2rem;
-    border: 1.1rem solid transparent;
-    border-left-color: $lilac;
-    border-bottom-color: $lilac;
-    border-radius: 50%;
-    transform: rotate(-22deg);
-  }
-
-  &__quote {
-    position: absolute;
-    left: 2.1rem;
-    bottom: 2.4rem;
-    z-index: 1;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(2.4rem, 4vw, 3.2rem);
-    font-style: italic;
-    font-weight: 900;
-    line-height: 0.94;
-    letter-spacing: -0.06em;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 }
 
+.photo-panel__accent {
+  position: absolute;
+  width: 42%;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid $c-cream;
+  box-shadow: 0.4rem 0.4rem 0 $ink;
+  aspect-ratio: 1;
+  transform: rotate(-3deg);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+  }
+}
+
+.photo-panel__badge {
+  position: absolute;
+  top: 1.5rem;
+  right: -1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.7rem 1rem;
+  background: $c-plum;
+  color: $c-cream;
+  border: 2px solid $c-plum;
+  border-radius: 0.75rem;
+  transform: rotate(2deg);
+  box-shadow: 0.3rem 0.3rem 0 rgba($ink, 0.4);
+  text-align: center;
+  min-width: 80px;
+}
+
+.photo-panel__badge-icon {
+  font-size: 1.1rem;
+  color: $c-orange;
+  line-height: 1;
+}
+
+.photo-panel__badge-price {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $c-pink;
+  line-height: 1;
+}
+
+.photo-panel__badge-detail {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba($c-cream, 0.65);
+  line-height: 1;
+}
+
+// ─── Breakpoints ─────────────────────────────────────────────────────────────
 @media (max-width: 860px) {
   .coming-soon::before {
     inset: 0.75rem;
@@ -336,26 +326,11 @@ h1 {
     justify-content: start;
   }
 
-  .poster {
+  .photo-panel {
     width: min(100%, 20rem);
   }
 }
 
-@media (max-width: 560px) {
-  .signup {
-    box-shadow: 0.35rem 0.35rem 0 $ink;
-
-    &__row {
-      grid-template-columns: 1fr;
-    }
-
-    button {
-      width: 100%;
-    }
-  }
-}
-
-/* Mobile layout fix: prevent poster/form overlap */
 @media (max-width: 700px) {
   .coming-soon {
     overflow-x: hidden;
@@ -422,7 +397,7 @@ h1 {
     margin-top: 1.8rem;
     padding: 0.9rem;
     border-radius: 1.2rem;
-    box-shadow: 0.35rem 0.35rem 0 #111111;
+    box-shadow: 0.35rem 0.35rem 0 $ink;
     background: #fffdf8;
   }
 
@@ -452,55 +427,31 @@ h1 {
     margin-top: 0.5rem;
   }
 
-  .poster {
+  .photo-panel {
     width: min(78vw, 17rem);
-    transform: rotate(1.5deg);
+    transform: rotate(1deg);
     margin: 0 auto;
   }
 
-  .poster::after {
-    right: -1rem;
-    bottom: -1.2rem;
-    width: 5rem;
-    height: 5rem;
-    background-size: 0.8rem 0.8rem;
+  .photo-panel__badge {
+    right: -0.5rem;
+    top: 1rem;
+    min-width: 68px;
+    padding: 0.5rem 0.75rem;
   }
+}
 
-  .poster__burst {
-    top: 1.5rem;
-    left: 1.4rem;
-    width: 3.6rem;
-    height: 3.6rem;
-    font-size: 2.7rem;
-    border-width: 3px;
-  }
+@media (max-width: 560px) {
+  .signup {
+    box-shadow: 0.35rem 0.35rem 0 $ink;
 
-  .poster__circle--red {
-    width: 5rem;
-    height: 5rem;
-    right: 1.4rem;
-    top: 4.4rem;
-  }
+    &__row {
+      grid-template-columns: 1fr;
+    }
 
-  .poster__circle--teal {
-    width: 5.8rem;
-    height: 5.8rem;
-    left: 1.3rem;
-    bottom: 3.2rem;
-  }
-
-  .poster__arc {
-    width: 9rem;
-    height: 9rem;
-    left: 3.6rem;
-    top: 6.6rem;
-    border-width: 0.75rem;
-  }
-
-  .poster__quote {
-    left: 1.45rem;
-    bottom: 1.7rem;
-    font-size: 2.1rem;
+    button {
+      width: 100%;
+    }
   }
 }
 
@@ -509,7 +460,7 @@ h1 {
     font-size: clamp(3.55rem, 18vw, 4.8rem);
   }
 
-  .poster {
+  .photo-panel {
     width: min(74vw, 15.5rem);
   }
 }
