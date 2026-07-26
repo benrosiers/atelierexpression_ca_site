@@ -5,6 +5,11 @@ const root = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   base: "/",
+  server: {
+    // allow LAN + tunnel hostnames (cloudflared trycloudflare.com etc.)
+    // during local dev/preview; irrelevant to `vite build` output.
+    allowedHosts: true
+  },
   build: {
     emptyOutDir: false,
     rollupOptions: {

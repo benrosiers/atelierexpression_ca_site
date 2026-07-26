@@ -163,7 +163,7 @@ a {
   width: clamp(20rem, 60vw, 28rem);
   left: -16%;
   bottom: -22%;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .signature .paint-scene {
@@ -445,5 +445,25 @@ a {
   .cta-primary:hover,
   .cta-secondary:hover {
     transform: none;
+  }
+}
+
+// ─── Transition band (vivid wave divider) ────────────────────────────────────
+.transition-band {
+  margin: -0.5rem 0;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  height: clamp(3.5rem, 12vw, 5.5rem);
+
+  picture,
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: center;
   }
 }

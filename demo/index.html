@@ -32,7 +32,10 @@
     <main class="demo-page">
       <header class="demo-header">
         <a class="brand-mark brand-mark--small" href="/" aria-label="Atelier Expression — accueil">
-          <img src="/images/logo_real_1024.png" alt="Atelier Expression" width="1024" height="1024" loading="eager" />
+          <picture>
+            <source srcset="/images/brand/atelier-expression-badge-full.webp" type="image/webp" />
+            <img src="/images/brand/atelier-expression-badge-full.png" alt="Atelier Expression" width="900" height="896" loading="eager" />
+          </picture>
         </a>
         <p class="eyebrow">Atelier démo</p>
       </header>
@@ -111,6 +114,13 @@
         </dl>
       </section>
 
+      <div class="transition-band" aria-hidden="true">
+        <picture>
+          <source srcset="/images/decor/paint-wave-vivid.webp" type="image/webp" />
+          <img src="/images/decor/paint-wave-vivid.png" alt="" loading="lazy" />
+        </picture>
+      </div>
+
       <section class="programme" aria-labelledby="programme-title">
         <h2 id="programme-title">Au programme</h2>
         <ul class="programme__list">
@@ -149,8 +159,8 @@
             data-parallax-depth="0.12"
             data-parallax-axis="both"
           >
-            <source srcset="/images/decor/paint-cluster-pink-peach.webp" type="image/webp" />
-            <img src="/images/decor/paint-cluster-pink-peach.png" alt="" loading="lazy" />
+            <source srcset="/images/decor/paint-cluster-vivid.webp" type="image/webp" />
+            <img src="/images/decor/paint-cluster-vivid.png" alt="" loading="lazy" />
           </picture>
         </div>
 
@@ -172,14 +182,17 @@
           </div>
         </div>
 
-        <img
-          class="signature__photo"
-          src="/images/cindy_studio_01.png"
-          alt="Cindy, fondatrice d'Atelier Expression"
-          width="120"
-          height="120"
-          loading="lazy"
-        />
+        <picture>
+          <source srcset="/images/cindy_founder.webp" type="image/webp" />
+          <img
+            class="signature__photo"
+            src="/images/cindy_founder.png"
+            alt="Cindy, fondatrice d'Atelier Expression"
+            width="120"
+            height="120"
+            loading="lazy"
+          />
+        </picture>
         <p>
           <strong>Cindy</strong>, fondatrice d'Atelier Expression, anime cet
           atelier avec une intention simple : que tu repartes plus léger,
