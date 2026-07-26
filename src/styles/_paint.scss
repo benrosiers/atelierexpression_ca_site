@@ -1,0 +1,117 @@
+// ─── PAINT IN MOTION — shared decorative system (index + demo) ─────────────
+// Reusable across main.scss and demo.scss. Pure decoration: layers here are
+// aria-hidden in markup and must never carry interactive content.
+
+:root {
+  --color-cream: #fff7ef;
+  --color-peach: #ffd6bd;
+  --color-blush: #f7b6ca;
+  --color-coral: #ff6548;
+  --color-orange: #ff5a1f;
+  --color-pink: #f02e8a;
+  --color-plum: #351426;
+  --color-paper: #fffdf8;
+
+  // written by src/js/parallax.js per data-parallax element
+  --parallax-x: 0px;
+  --parallax-y: 0px;
+  --paint-rotation: 0deg;
+}
+
+.paint-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.paint-layer {
+  position: absolute;
+  display: block;
+  max-width: none;
+  will-change: transform;
+  pointer-events: none;
+  transform-origin: center;
+  transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0)
+    rotate(var(--paint-rotation, 0deg));
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none !important;
+  }
+}
+
+// Level 1 — background: very large, soft, mostly off-canvas.
+.paint-layer--l1 {
+  opacity: 0.75;
+}
+
+// Level 2 — mid paint: frames photos / sections / diagonals.
+.paint-layer--l2 {
+  opacity: 0.92;
+  filter: drop-shadow(0 1.25rem 2.5rem rgba(53, 20, 38, 0.1));
+}
+
+// Level 3 — logo patches.
+.logo-patch {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  will-change: transform;
+  transform-origin: center;
+  transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0)
+    rotate(var(--paint-rotation, 0deg));
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: rotate(var(--paint-rotation, 0deg)) !important;
+  }
+}
+
+.logo-patch--primary {
+  width: clamp(15rem, 26vw, 34.5rem);
+  filter: drop-shadow(0 1.4rem 2.75rem rgba(53, 20, 38, 0.22));
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.logo-patch--ambient {
+  width: clamp(16rem, 34vw, 30rem);
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    // fallback if mask is unsupported: image is already a circular badge,
+    // so it still reads as a soft painted stamp without the mask.
+    -webkit-mask-image: url("/images/decor/paint-disc-coral.webp");
+    mask-image: url("/images/decor/paint-disc-coral.webp");
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+}
+
+// A section that wants a painted backdrop instead of a plain panel.
+.section-canvas {
+  position: relative;
+  isolation: isolate;
+}
+
+.section-canvas--painted {
+  overflow: visible;
+}
+
+// Anything purely decorative should never intercept pointer events even if
+// a future layer forgets pointer-events on itself.
+[data-parallax] {
+  pointer-events: none;
+}

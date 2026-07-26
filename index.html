@@ -7,7 +7,7 @@
       name="description"
       content="Atelier Expression arrive bientôt près de chez vous. Inscrivez-vous pour recevoir les prochaines informations."
     />
-    <meta name="theme-color" content="#f7f4ef" />
+    <meta name="theme-color" content="#fff7ef" />
 
     <meta property="og:title" content="Atelier Expression — Bientôt près de chez vous" />
     <meta
@@ -18,11 +18,55 @@
 
     <title>Atelier Expression — Bientôt près de chez vous</title>
 
-    <link rel="icon" type="image/png" href="/images/logo_real_1024.png" />
-    <link rel="apple-touch-icon" href="/images/logo_real_1024.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   </head>
   <body>
     <main class="coming-soon" aria-labelledby="page-title">
+      <div class="paint-scene" aria-hidden="true">
+        <picture
+          class="paint-layer paint-layer--l1 paint-layer--hero-soft"
+          data-parallax
+          data-parallax-depth="0.07"
+          data-parallax-axis="both"
+        >
+          <source srcset="/images/decor/paint-soft-peach.webp" type="image/webp" />
+          <img src="/images/decor/paint-soft-peach.png" alt="" loading="eager" />
+        </picture>
+
+        <picture
+          class="paint-layer paint-layer--l1 paint-layer--hero-disc"
+          data-parallax
+          data-parallax-depth="0.06"
+          data-parallax-axis="both"
+          data-parallax-pointer="true"
+        >
+          <source srcset="/images/decor/paint-disc-coral.webp" type="image/webp" />
+          <img src="/images/decor/paint-disc-coral.png" alt="" loading="eager" />
+        </picture>
+
+        <picture
+          class="paint-layer paint-layer--l2 paint-layer--vertical"
+          data-parallax
+          data-parallax-depth="0.13"
+          data-parallax-axis="y"
+        >
+          <source srcset="/images/decor/paint-vertical-flow.webp" type="image/webp" />
+          <img src="/images/decor/paint-vertical-flow.png" alt="" loading="lazy" />
+        </picture>
+
+        <div
+          class="logo-patch logo-patch--ambient logo-patch--hero-ambient"
+          data-parallax
+          data-parallax-depth="0.18"
+          data-parallax-axis="both"
+        >
+          <img src="/images/brand/atelier-expression-badge-symbol.webp" alt="" loading="lazy" />
+        </div>
+      </div>
+
       <section class="hero" aria-label="Atelier Expression — page d'attente">
         <div class="hero__copy">
           <a class="brand-mark" href="/" aria-label="Atelier Expression — accueil">
@@ -75,6 +119,17 @@
               <span class="photo-panel__badge-title">Atelier démo</span>
               <span class="photo-panel__badge-detail">Gratuit</span>
             </div>
+          </div>
+
+          <div
+            class="logo-patch logo-patch--primary"
+            data-parallax
+            data-parallax-depth="0.22"
+            data-parallax-axis="both"
+            data-parallax-pointer="true"
+            data-parallax-rotate="1.4"
+          >
+            <img src="/images/brand/atelier-expression-badge-full.webp" alt="" loading="lazy" />
           </div>
         </div>
       </section>

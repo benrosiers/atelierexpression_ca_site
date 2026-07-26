@@ -1,4 +1,7 @@
 ﻿import "../styles/main.scss";
+import { initParallax } from "./parallax.js";
+
+initParallax();
 
 const SIGNUP_ENDPOINT = "https://script.google.com/macros/s/AKfycbwiTjr_vB7Q1Y8YUpLCCJBqSoPjQYEE_RnbbQIiOn5ooV55bKgzhBXlDg9I_m8ppG6QXA/exec";
 
